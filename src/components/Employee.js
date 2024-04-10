@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "../api/axios";
 import "./style.css";
 import ReactPaginate from 'react-paginate';
+import Navbar from "./NavBar";
 
 
 const Employee = () => {
@@ -48,6 +49,7 @@ const Employee = () => {
     config.headers.Authorization = `Bearer ${accessToken}`;
     return config;
   });
+  
 
   // Fetch all employees
   const fetchEmployees = async (page) => {
@@ -598,6 +600,8 @@ const Employee = () => {
   };
 
   return (
+    <>
+          {showEmployeeData && <Navbar />}
     <div align="center">
         
       <h1>Employee Management</h1>
@@ -618,6 +622,7 @@ const Employee = () => {
       {showEmployeeData &&  <button style={{"width":"250px"}} className="form-container-button" onClick={handleAddEmployeeClick}>Add Employee</button>}
      
     </div>
+    </>
   );
 };
 
