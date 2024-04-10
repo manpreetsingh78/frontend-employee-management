@@ -6,8 +6,6 @@ import Employee from "./Employee";
 import { useNavigate } from 'react-router-dom';
 
 
-
-const LOGIN_URL = "";
 const Login = () => {
   const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
@@ -42,7 +40,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        LOGIN_URL + "create-token/",
+        "create-token/",
         JSON.stringify({ username: user, password: pwd }),
         {
           headers: { "Content-Type": "application/json" },
